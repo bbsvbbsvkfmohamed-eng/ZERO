@@ -3,186 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Unban - فك حظر واتساب</title>
+    <title>WhatsApp Unban - ZERO ELYOUTUBER</title>
+    
+    <!-- خطوط جوجل (Cairo) للفخامة -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* إعدادات الأنيميشن الفخمة */
+        @keyframes floatWave {
+            0%, 100% { transform: translateY(0px); box-shadow: 0 10px 20px rgba(255, 0, 60, 0.3); }
+            50% { transform: translateY(-12px); box-shadow: 0 25px 30px rgba(255, 0, 60, 0.5); }
+        }
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 0, 60, 0.4); }
+            50% { text-shadow: 0 0 25px rgba(255, 0, 60, 0.8), 0 0 10px rgba(255, 0, 60, 0.5); }
+        }
+        @keyframes pulseBg {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #111b21;
+            /* خلفية سوداء مع إضاءة حمراء خفيفة من المنتصف */
+            background: radial-gradient(circle at center, #1a0004 0%, #000000 100%);
             color: #e9edef;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 20px;
+            padding: 30px 20px;
+            overflow-x: hidden;
         }
+
+        /* الحاوية بنظام الزجاج الفخم (Glassmorphism) */
         .container {
-            background: #202c33;
-            border-radius: 12px;
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
             width: 100%;
-            max-width: 550px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            margin-top: 20px;
+            max-width: 580px;
+            padding: 40px;
+            border: 1px solid rgba(255, 0, 60, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 0, 60, 0.05);
+            transition: all 0.4s ease;
         }
+        .container:hover {
+            border-color: rgba(255, 0, 60, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(255, 0, 60, 0.1);
+        }
+
+        /* الصورة وتأثير التمويج */
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px auto;
+            display: block;
+            border: 3px solid #ff003c;
+            animation: floatWave 4s ease-in-out infinite;
+        }
+
         .header {
             text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #2a3942;
+            margin-bottom: 35px;
         }
-        .header h1 { color: #00a884; font-size: 22px; margin-bottom: 8px; }
-        .header p { color: #8696a0; font-size: 13px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label {
-            display: block;
-            color: #00a884;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .form-group label .required { color: #ea4335; }
-        .phone-group { display: flex; gap: 10px; }
-        .phone-group select {
-            width: 130px;
-            padding: 12px;
-            background: #2a3942;
-            border: 1px solid #3b4a54;
-            border-radius: 8px;
-            color: #e9edef;
-            font-size: 14px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-        .phone-group select:focus { outline: none; border-color: #00a884; }
-        .phone-group input {
-            flex: 1;
-            padding: 12px;
-            background: #2a3942;
-            border: 1px solid #3b4a54;
-            border-radius: 8px;
-            color: #e9edef;
-            font-size: 14px;
-            direction: ltr;
-            text-align: left;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            background: #2a3942;
-            border: 1px solid #3b4a54;
-            border-radius: 8px;
-            color: #e9edef;
-            font-size: 14px;
-            font-family: inherit;
-        }
-        input:focus, textarea:focus { outline: none; border-color: #00a884; }
-        input::placeholder, textarea::placeholder { color: #667781; }
-        textarea { height: 140px; resize: vertical; direction: ltr; }
-        .platform-group { display: flex; flex-direction: column; gap: 10px; }
-        .platform-option {
+        
+        .header h1 { 
+            color: #ffffff; 
+            font-size: 28px; 
+            font-weight: 800;
+            margin-bottom: 5px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 14px;
-            background: #2a3942;
-            border: 1px solid #3b4a54;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
+            justify-content: center;
+            gap: 12px;
+            letter-spacing: 1px;
+            animation: textGlow 3s infinite;
         }
-        .platform-option:hover { border-color: #00a884; }
+        .header h1 i { color: #ff003c; font-size: 32px; }
+        .header p { 
+            color: #a0a0a0; 
+            font-size: 15px; 
+            font-weight: 600;
+        }
+
+        /* الحقول */
+        .form-group { margin-bottom: 22px; }
+        .form-group label {
+            display: block;
+            color: #ff003c;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        .form-group label .required { color: #ff003c; }
+        
+        .phone-group { display: flex; gap: 12px; }
+        .phone-group select, input, textarea {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .phone-group select { width: 140px; padding: 14px; cursor: pointer; flex-shrink: 0; font-weight: 600; }
+        .phone-group input { flex: 1; padding: 14px; direction: ltr; text-align: left; }
+        input, textarea { width: 100%; padding: 14px; }
+        
+        /* تأثير الإضاءة عند الكتابة */
+        input:focus, textarea:focus, select:focus { 
+            outline: none; 
+            border-color: #ff003c;
+            background: rgba(20, 0, 5, 0.8);
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.2);
+            transform: translateY(-2px);
+        }
+        textarea { height: 150px; resize: none; direction: ltr; line-height: 1.6; }
+
+        .platform-group { display: flex; flex-direction: column; gap: 12px; }
+        .platform-option {
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 18px; background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .platform-option:hover { border-color: rgba(255, 0, 60, 0.5); transform: translateX(-5px); }
         .platform-option.selected {
-            border-color: #00a884;
-            background: rgba(0, 168, 132, 0.1);
+            border-color: #ff003c;
+            background: linear-gradient(90deg, rgba(255, 0, 60, 0.15) 0%, rgba(0,0,0,0) 100%);
+            box-shadow: inset 4px 0 0 #ff003c;
         }
-        .platform-option input[type="radio"] { width: auto; accent-color: #00a884; }
-        .platform-option label { color: #e9edef; font-size: 14px; cursor: pointer; margin: 0; }
+        .platform-option input[type="radio"] { accent-color: #ff003c; transform: scale(1.2); }
+        .platform-option label { color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; margin: 0; width: 100%; }
+
+        /* الزر الرئيسي (عالمي وفخم) */
         .submit-btn {
             width: 100%;
-            padding: 14px;
-            background: #00a884;
+            padding: 16px;
+            background: linear-gradient(45deg, #cc0030, #ff003c, #cc0030);
+            background-size: 200% auto;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             color: #fff;
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 800;
             cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 10px;
-            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 15px;
+            box-shadow: 0 8px 25px rgba(255, 0, 60, 0.4);
+            animation: pulseBg 3s linear infinite;
         }
-        .submit-btn:hover { background: #06cf9c; }
-        .submit-btn:disabled { background: #3b4a54; cursor: not-allowed; }
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-            font-size: 14px;
+        .submit-btn:hover { 
+            box-shadow: 0 12px 35px rgba(255, 0, 60, 0.6);
+            transform: translateY(-3px);
+        }
+        .submit-btn:active { 
+            transform: scale(0.96); /* تأثير الضغط العميق */
+            box-shadow: 0 5px 15px rgba(255, 0, 60, 0.4); 
+        }
+
+        /* أزرار السوشيال ميديا */
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .social-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 12px;
             text-align: center;
-            line-height: 1.8;
+            text-decoration: none;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .result.success {
-            display: block;
-            background: rgba(0, 168, 132, 0.15);
-            border: 1px solid #00a884;
-            color: #00a884;
+        
+        .yt-btn { color: #ff0000; }
+        .yt-btn:hover {
+            background: #ff0000;
+            color: #fff;
+            border-color: #ff0000;
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            transform: translateY(-3px);
         }
-        .result.error {
-            display: block;
-            background: rgba(234, 67, 53, 0.15);
-            border: 1px solid #ea4335;
-            color: #ea4335;
+        .yt-btn:active { transform: scale(0.95); }
+
+        .tg-btn { color: #0088cc; }
+        .tg-btn:hover {
+            background: #0088cc;
+            color: #fff;
+            border-color: #0088cc;
+            box-shadow: 0 8px 25px rgba(0, 136, 204, 0.4);
+            transform: translateY(-3px);
         }
-        .result.info {
-            display: block;
-            background: rgba(0, 122, 255, 0.15);
-            border: 1px solid #007aff;
-            color: #00a884;
-        }
-        .spinner {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            border: 2px solid #fff;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .tg-btn:active { transform: scale(0.95); }
+
+        /* الختم الفخم المعدني (Red Metallic) */
         .footer {
             text-align: center;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid #2a3942;
-            color: #667781;
-            font-size: 11px;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .email-preview {
-            background: #111b21;
-            border: 1px solid #3b4a54;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-            font-size: 12px;
-            color: #8696a0;
-            text-align: left;
-            direction: ltr;
-            white-space: pre-wrap;
-            line-height: 1.6;
+        .zero-brand {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            background: linear-gradient(to right, #660018, #ff003c, #ffffff, #ff003c, #660018);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulseBg 4s linear infinite, floatWave 4s ease-in-out infinite;
+            display: inline-block;
+            text-shadow: 0 5px 15px rgba(255, 0, 60, 0.2);
+        }
+
+        /* رسائل النتيجة */
+        .result {
+            margin-top: 25px;
+            padding: 16px;
+            border-radius: 12px;
             display: none;
+            font-size: 15px;
+            text-align: center;
+            font-weight: 800;
+            animation: floatWave 3s infinite;
         }
-        .email-preview strong { color: #00a884; }
+        .result.success { background: rgba(0, 200, 83, 0.1); border: 1px solid #00c853; color: #00c853; box-shadow: 0 0 20px rgba(0,200,83,0.2); }
+        .result.error { background: rgba(255, 0, 60, 0.1); border: 1px solid #ff003c; color: #ff003c; box-shadow: 0 0 20px rgba(255,0,60,0.2); }
+        .result.info { background: rgba(0, 136, 204, 0.1); border: 1px solid #0088cc; color: #0088cc; box-shadow: 0 0 20px rgba(0,136,204,0.2); }
+        
+        .spinner {
+            display: inline-block; width: 20px; height: 20px;
+            border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%;
+            animation: spin 0.8s linear infinite; margin-left: 10px; vertical-align: middle;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* تخصيص السكرول بار */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #ff003c; border-radius: 10px; }
     </style>
 </head>
 <body>
     <div class="container">
+        
+        <!-- ضع رابط صورتك بدلاً من الرابط الموجود في src -->
+        <img src="https://files.catbox.moe/uc1y7j.png" alt="ZERO ELYOUTUBER" class="profile-img">
+
         <div class="header">
-            <h1>WhatsApp Unban Request</h1>
-            <p>تقديم طلب فك حظر واتساب</p>
+            <h1><i class="fab fa-whatsapp"></i> WhatsApp Unban</h1>
+            <p>النظام المتقدم لفك حظر حسابات واتساب</p>
         </div>
 
         <form id="unbanForm">
@@ -204,90 +291,37 @@
                         <option value="+213">+213 (DZ)</option>
                         <option value="+212">+212 (MA)</option>
                         <option value="+249">+249 (SD)</option>
-                        <option value="+1">+1 (US)</option>
-                        <option value="+44">+44 (UK)</option>
-                        <option value="+49">+49 (DE)</option>
-                        <option value="+33">+33 (FR)</option>
-                        <option value="+39">+39 (IT)</option>
-                        <option value="+34">+34 (ES)</option>
-                        <option value="+90">+90 (TR)</option>
-                        <option value="+92">+92 (PK)</option>
-                        <option value="+91">+91 (IN)</option>
-                        <option value="+880">+880 (BD)</option>
-                        <option value="+62">+62 (ID)</option>
-                        <option value="+60">+60 (MY)</option>
-                        <option value="+63">+63 (PH)</option>
-                        <option value="+66">+66 (TH)</option>
-                        <option value="+84">+84 (VN)</option>
-                        <option value="+86">+86 (CN)</option>
-                        <option value="+81">+81 (JP)</option>
-                        <option value="+82">+82 (KR)</option>
-                        <option value="+7">+7 (RU)</option>
-                        <option value="+380">+380 (UA)</option>
-                        <option value="+48">+48 (PL)</option>
-                        <option value="+46">+46 (SE)</option>
-                        <option value="+47">+47 (NO)</option>
-                        <option value="+45">+45 (DK)</option>
-                        <option value="+358">+358 (FI)</option>
-                        <option value="+31">+31 (NL)</option>
-                        <option value="+32">+32 (BE)</option>
-                        <option value="+41">+41 (CH)</option>
-                        <option value="+43">+43 (AT)</option>
-                        <option value="+351">+351 (PT)</option>
-                        <option value="+353">+353 (IE)</option>
-                        <option value="+61">+61 (AU)</option>
-                        <option value="+64">+64 (NZ)</option>
-                        <option value="+55">+55 (BR)</option>
-                        <option value="+52">+52 (MX)</option>
-                        <option value="+54">+54 (AR)</option>
-                        <option value="+56">+56 (CL)</option>
-                        <option value="+57">+57 (CO)</option>
-                        <option value="+51">+51 (PE)</option>
-                        <option value="+234">+234 (NG)</option>
-                        <option value="+254">+254 (KE)</option>
-                        <option value="+27">+27 (ZA)</option>
-                        <option value="+233">+233 (GH)</option>
-                        <option value="+251">+251 (ET)</option>
-                        <option value="+252">+252 (SO)</option>
                     </select>
-                    <input type="tel" id="phoneNumber" placeholder="أدخل رقم الهاتف" required>
+                    <input type="tel" id="phoneNumber" placeholder="أدخل رقم الهاتف بدون أصفار" required>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>عنوان البريد الإلكتروني <span class="required">*</span></label>
+                <label>البريد الإلكتروني للتواصل <span class="required">*</span></label>
                 <input type="email" id="email" placeholder="example@email.com" required>
             </div>
 
             <div class="form-group">
-                <label>كيف تستخدم واتساب؟ <span class="required">*</span></label>
+                <label>نظام التشغيل المستخدم <span class="required">*</span></label>
                 <div class="platform-group">
                     <div class="platform-option" onclick="selectPlatform(this, 'android')">
                         <input type="radio" name="platform" id="android" value="android">
-                        <label for="android">Android</label>
+                        <label for="android"><i class="fab fa-android"></i> نظام أندرويد (Android)</label>
                     </div>
                     <div class="platform-option" onclick="selectPlatform(this, 'iphone')">
                         <input type="radio" name="platform" id="iphone" value="iphone">
-                        <label for="iphone">iPhone</label>
+                        <label for="iphone"><i class="fab fa-apple"></i> نظام آيفون (iOS)</label>
                     </div>
                     <div class="platform-option selected" onclick="selectPlatform(this, 'web')">
                         <input type="radio" name="platform" id="web" value="web" checked>
-                        <label for="web">واتساب للويب و للكمبيوتر</label>
-                    </div>
-                    <div class="platform-option" onclick="selectPlatform(this, 'kaios')">
-                        <input type="radio" name="platform" id="kaios" value="kaios">
-                        <label for="kaios">KaiOS</label>
-                    </div>
-                    <div class="platform-option" onclick="selectPlatform(this, 'other')">
-                        <input type="radio" name="platform" id="other" value="other">
-                        <label for="other">غير ذلك</label>
+                        <label for="web"><i class="fas fa-laptop-code"></i> واتساب للويب و الكمبيوتر</label>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>رسالتك <span class="required">*</span></label>
-                <textarea id="message" placeholder="اكتب رسالتك هنا..." required>Dear WhatsApp Support Team,
+                <label>الرسالة الموجهة للشركة <span class="required">*</span></label>
+                <textarea id="message" required>Dear WhatsApp Support Team,
 
 I am writing to request a review of my WhatsApp account ban. My account was banned and I believe this may have been issued in error.
 
@@ -300,15 +334,26 @@ Thank you for your time and assistance.</textarea>
             </div>
 
             <button type="submit" class="submit-btn" id="submitBtn">
-                إرسال طلب فك الحظر
+                <i class="fas fa-rocket"></i> إرسال الطلب الآن
             </button>
         </form>
 
-        <div id="emailPreview" class="email-preview"></div>
         <div id="result" class="result"></div>
 
+        <!-- أزرار السوشيال ميديا -->
+        <div class="social-buttons">
+            <!-- ضع رابط قناتك على يوتيوب بدل # -->
+            <a href="#" class="social-btn yt-btn" target="_blank">
+                <i class="https://www.youtube.com/@ZERO-YT-MAX"></i> قناة اليوتيوب
+            </a>
+            <!-- ضع رابط قناتك على تليجرام بدل # -->
+            <a href="#" class="social-btn tg-btn" target="_blank">
+                <i class="https://t.me/D_V_L_V_i_p"></i> قناة التليجرام
+            </a>
+        </div>
+
         <div class="footer">
-            WhatsApp Unban Tool - Email Support
+            <span class="zero-brand">ZERO ELYOUTUBER</span>
         </div>
     </div>
 
@@ -316,17 +361,13 @@ Thank you for your time and assistance.</textarea>
         const WHATSAPP_EMAILS = {
             'android': 'android_web@support.whatsapp.com',
             'iphone': 'iphone_web@support.whatsapp.com',
-            'web': 'support@support.whatsapp.com',
-            'kaios': 'support@support.whatsapp.com',
-            'other': 'support@support.whatsapp.com'
+            'web': 'support@support.whatsapp.com'
         };
 
         const PLATFORM_NAMES = {
             'android': 'Android',
             'iphone': 'iPhone',
-            'web': 'WhatsApp Web/Desktop',
-            'kaios': 'KaiOS',
-            'other': 'Other'
+            'web': 'WhatsApp Web/Desktop'
         };
 
         function selectPlatform(element, value) {
@@ -340,7 +381,6 @@ Thank you for your time and assistance.</textarea>
 
             const btn = document.getElementById('submitBtn');
             const resultDiv = document.getElementById('result');
-            const previewDiv = document.getElementById('emailPreview');
 
             const countryCode = document.getElementById('countryCode').value;
             const phoneNumber = document.getElementById('phoneNumber').value.trim();
@@ -350,80 +390,50 @@ Thank you for your time and assistance.</textarea>
 
             if (!phoneNumber || !email || !message) {
                 resultDiv.className = 'result error';
-                resultDiv.innerHTML = 'Please fill in all required fields';
+                resultDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> يرجى ملء جميع الحقول المطلوبة';
                 resultDiv.style.display = 'block';
                 return;
             }
 
             const fullPhone = countryCode + phoneNumber;
             const toEmail = WHATSAPP_EMAILS[platform] || 'support@support.whatsapp.com';
-
             const emailSubject = 'WhatsApp Ban Appeal - ' + fullPhone;
-
-            const emailBody = `Dear WhatsApp Support Team,
-
-I am writing to request a review of my WhatsApp account ban.
-
-Phone Number: ${fullPhone}
-Email: ${email}
-Platform: ${PLATFORM_NAMES[platform] || platform}
-
-Details:
-${message}
-
-I kindly request that you review my account and restore access. I believe this ban may have been issued in error and I would appreciate a thorough review of my case.
-
-Thank you for your time and assistance.
-
-Best regards,
-${email}`;
-
-            // Show email preview
-            previewDiv.innerHTML = '<strong>To:</strong> ' + toEmail + '\n<strong>Subject:</strong> ' + emailSubject + '\n\n' + emailBody;
-            previewDiv.style.display = 'block';
+            const emailBody = `Dear WhatsApp Support Team,\n\nI am writing to request a review of my WhatsApp account ban.\n\nPhone Number: ${fullPhone}\nEmail: ${email}\nPlatform: ${PLATFORM_NAMES[platform] || platform}\n\nDetails:\n${message}\n\nI kindly request that you review my account and restore access.\n\nBest regards,\n${email}`;
 
             btn.disabled = true;
-            btn.innerHTML = '<span class="spinner"></span> جاري الإرسال...';
+            btn.innerHTML = '<span class="spinner"></span> جاري المعالجة...';
             resultDiv.style.display = 'none';
 
             try {
                 const response = await fetch('https://wwsawwr52.asdas452mo.workers.dev/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        phone_number: fullPhone,
-                        email: email,
-                        platform: platform,
-                        message: message
-                    })
+                    body: JSON.stringify({ phone_number: fullPhone, email: email, platform: platform, message: message })
                 });
 
                 const data = await response.json();
 
                 if (data.success) {
                     resultDiv.className = 'result success';
-                    resultDiv.innerHTML = '&#10003; تم إرسال الإيميل بنجاح إلى: <strong>' + toEmail + '</strong>';
+                    resultDiv.innerHTML = '<i class="fas fa-check-circle"></i> تم إرسال الطلب بنجاح إلى سيرفرات الدعم';
                 } else {
-                    // Fallback: open mailto
                     openMailto(toEmail, emailSubject, emailBody);
                     resultDiv.className = 'result info';
-                    resultDiv.innerHTML = '&#10003; تم فتح برنامج البريد الإلكتروني. يرجى الإرسال يدوياً إلى:<br><strong>' + toEmail + '</strong>';
+                    resultDiv.innerHTML = '<i class="fas fa-envelope-open-text"></i> تم فتح تطبيق البريد للإرسال اليدوي';
                 }
             } catch (error) {
-                // Fallback: open mailto
                 openMailto(toEmail, emailSubject, emailBody);
                 resultDiv.className = 'result info';
-                resultDiv.innerHTML = '&#10003; تم فتح برنامج البريد الإلكتروني. يرجى الإرسال يدوياً إلى:<br><strong>' + toEmail + '</strong>';
+                resultDiv.innerHTML = '<i class="fas fa-envelope-open-text"></i> تم فتح تطبيق البريد للإرسال اليدوي';
             }
 
             btn.disabled = false;
-            btn.innerHTML = 'إرسال طلب فك الحظر';
+            btn.innerHTML = '<i class="fas fa-rocket"></i> إرسال الطلب الآن';
             resultDiv.style.display = 'block';
         });
 
         function openMailto(to, subject, body) {
-            const mailtoLink = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-            window.location.href = mailtoLink;
+            window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
         }
     </script>
 </body>
